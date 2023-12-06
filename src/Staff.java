@@ -1,10 +1,11 @@
-public class Staff{
+public class Staff {
     private String accessLevel;
 
     public Staff(String accessLevel) {
 
         this.accessLevel = accessLevel;
     }
+
 
     // Getters and setters
 
