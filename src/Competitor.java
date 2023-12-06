@@ -12,8 +12,10 @@ public class Competitor {
         this.competitorNumber = competitorNumber;
         this.competitionLevel = competitionLevel;
         this.scores = new int[5];
-        System.out.println(name);
-
+        System.out.println("Competitor number " + competitorNumber +",");
+        System.out.println("name " + name + ",");
+        System.out.println("date of birth " + dateOfBirth + ".");
+        System.out.println("Competition Level " + competitionLevel);
     }
 
     // Getters and setters
