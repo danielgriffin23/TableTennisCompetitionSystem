@@ -1,13 +1,13 @@
 import java.util.Date;
 
-public class Competitor {
-    private String name;
+public class Competitor extends Name{
+    private Name name;
     private Date dateOfBirth;
     private int competitorNumber;
     private int competitionLevel;
     private int[] scores;
-    public Competitor(String name, Date dateOfBirth, int competitorNumber, int competitionLevel) {
-        this.name = name;
+    public Competitor(String firstName, String middleName, String surname, Date dateOfBirth, int competitorNumber, int competitionLevel) {
+        super(firstName, middleName, surname);
         this.dateOfBirth = dateOfBirth;
         this.competitorNumber = competitorNumber;
         this.competitionLevel = competitionLevel;
@@ -17,12 +17,12 @@ public class Competitor {
 
     // Getters and setters
 
-    public String getName() {
+    public Name getName() {
 
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Name name) {
 
         this.name = name;
     }
@@ -74,22 +74,16 @@ public class Competitor {
     public String getFullDetails() {
 
         StringBuilder stringBuilder = new StringBuilder();
-        return stringBuilder.append("Competitor number ")
-                .append(competitorNumber)
-                .append(",")
-                .append("name")
-                .append(name)
-                .append(",")
-                .append("date of birth ")
-                .append(dateOfBirth)
-                .append(".")
-                .append("competition level ")
-                .append(competitionLevel).toString();
-
+        return stringBuilder.append("Competitor number: " + competitorNumber + ", ")
+                .append("Name: " + firstName + " " + middleName + " " + surname + ", ")
+                .append("with a date of birth of " + dateOfBirth + ". ")
+                .append(firstName + " is competing at level " + competitionLevel + " with an overall score of " + scores + ".").toString();
     }
 
     public String getShortDetails() {
-
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        return stringBuilder.append("CN" + competitorNumber + " ")
+                .append("("+ firstName+ ") ")
+                .append("has an overall score " + scores + ".").toString();
     }
 }
