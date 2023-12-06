@@ -12,10 +12,7 @@ public class Competitor {
         this.competitorNumber = competitorNumber;
         this.competitionLevel = competitionLevel;
         this.scores = new int[5];
-        System.out.println("Competitor number " + competitorNumber +",");
-        System.out.println("name " + name + ",");
-        System.out.println("date of birth " + dateOfBirth + ".");
-        System.out.println("Competition Level " + competitionLevel);
+
     }
 
     // Getters and setters
@@ -76,7 +73,19 @@ public class Competitor {
 
     public String getFullDetails() {
 
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        return stringBuilder.append("Competitor number ")
+                .append(competitorNumber)
+                .append(",")
+                .append("name")
+                .append(name)
+                .append(",")
+                .append("date of birth ")
+                .append(dateOfBirth)
+                .append(".")
+                .append("competition level ")
+                .append(competitionLevel).toString();
+
     }
 
     public String getShortDetails() {
