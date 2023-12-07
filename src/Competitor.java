@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Date;
 
 public class Competitor extends Name{
@@ -6,12 +7,14 @@ public class Competitor extends Name{
     private int competitorNumber;
     private int competitionLevel;
     private int[] scores;
-    public Competitor(String firstName, String middleName, String surname, Date dateOfBirth, int competitorNumber, int competitionLevel) {
+    public Competitor(String firstName, String middleName, String surname,
+                      Date dateOfBirth, int competitorNumber,
+                      int competitionLevel, int[] scores) {
         super(firstName, middleName, surname);
         this.dateOfBirth = dateOfBirth;
         this.competitorNumber = competitorNumber;
         this.competitionLevel = competitionLevel;
-        this.scores = new int[5];
+        this.scores = scores;
 
     }
 
@@ -61,29 +64,59 @@ public class Competitor extends Name{
 
     //Gets the array of scores
     public int[] getScoreArray(){
+
         return scores;
     }
 
     //Calculates the average score of all scores
     public double getOverallScore() {
 
-        return 5;
-    }
+        int minScore = scores[0];
+        int maxScore = scores[0];
+        int sum = scores[0];
 
+        for (int i = 1; i < scores.length; i++) {
+            int score = scores[i];
+            sum += score;
+
+            if (score < minScore) {
+                minScore = score;
+            }
+            if (score > maxScore) {
+                maxScore = score;
+            }
+        }
+
+        sum -= minScore;
+        sum -= maxScore;
+
+        // Calculate the average
+        double average = (double) sum / (scores.length - 2);
+
+        return average;
+
+    }
 
     public String getFullDetails() {
 
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder.append("Competitor number: " + competitorNumber + ", ")
                 .append("Name: " + firstName + " " + middleName + " " + surname + ", ")
-                .append("with a date of birth of " + dateOfBirth + ". ")
-                .append(firstName + " is competing at level " + competitionLevel + " with an overall score of " + scores + ".").toString();
+                .append("born " + dateOfBirth + ". ")
+                .append(firstName + " is competing at level " + competitionLevel + " and recieved these scores: " + Arrays.toString(scores) + ".")
+                .append("This gives him an overall score of " + getOverallScore() + ".").toString();
     }
 
+
     public String getShortDetails() {
+
+        char firstNameInitial = firstName.charAt(0);
+        char middleNameInitial = middleName.charAt(0);
+        char surnameameInitial = surname.charAt(0);
+
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder.append("CN" + competitorNumber + " ")
-                .append("("+ firstName+ ") ")
-                .append("has an overall score " + scores + ".").toString();
+                .append("("+ firstNameInitial + middleNameInitial + surnameameInitial + ") ")
+                .append("has an overall score " + getOverallScore() + ".").toString();
     }
 }
