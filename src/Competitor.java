@@ -18,10 +18,11 @@ public class Competitor extends Name{
 //
 //    }
 
-    public Competitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int[] scores ) {
+    public Competitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int  competitorlevel, int[] scores ) {
         super(firstName, middleName, surname);
         this.competitorNumber = competitorNumber;
         this.dateOfBirth = dateOfBirth;
+        this.competitionLevel = competitorlevel;
         this.scores = scores;
     }
 
