@@ -46,7 +46,7 @@ public class CompetitorList {
 
     private Date parseDate(String dateString) throws Exception  {
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // Adjust the format based on your date format
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             return dateFormat.parse(dateString);
         } catch (ParseException e) {
             throw new RuntimeException(e);
