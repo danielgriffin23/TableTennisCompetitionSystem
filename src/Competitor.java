@@ -7,15 +7,22 @@ public class Competitor extends Name{
     private int competitorNumber;
     private int competitionLevel;
     private int[] scores;
-    public Competitor(String firstName, String middleName, String surname,
-                      Date dateOfBirth, int competitorNumber,
-                      int competitionLevel, int[] scores) {
-        super(firstName, middleName, surname);
-        this.dateOfBirth = dateOfBirth;
-        this.competitorNumber = competitorNumber;
-        this.competitionLevel = competitionLevel;
-        this.scores = scores;
+//    public Competitor(String firstName, String middleName, String surname,
+//                      Date dateOfBirth, int competitorNumber,
+//                      int competitionLevel, int[] scores) {
+//        super(firstName, middleName, surname);
+//        this.dateOfBirth = dateOfBirth;
+//        this.competitorNumber = competitorNumber;
+//        this.competitionLevel = competitionLevel;
+//        this.scores = scores;
+//
+//    }
 
+    public Competitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int[] scores ) {
+        super(firstName, middleName, surname);
+        this.competitorNumber = competitorNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.scores = scores;
     }
 
     // Getters and setters
@@ -118,5 +125,18 @@ public class Competitor extends Name{
         return stringBuilder.append("CN" + competitorNumber + " ")
                 .append("("+ firstNameInitial + middleNameInitial + surnameameInitial + ") ")
                 .append("has an overall score " + getOverallScore() + ".").toString();
+    }
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("Competitor: " +
+                "competitorNumber=" + competitorNumber +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", scores=" + Arrays.toString(scores) +
+                '}');
+
+        return builder.toString();
     }
 }
