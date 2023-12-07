@@ -89,93 +89,97 @@ public class CompetitorList {
         return player;
     }
 
+    //Moved to the Manager class
     //Write to File method
-    public void writeToFile(String filename) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-            for (Competitor competitor : player) {
-                if (competitor != null) {
-                    writer.write(competitor.getFullDetails());
-                    writer.newLine(); // Add a newline between each competitor
-                }
-            }
+//    public void writeToFile(String filename) {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+//            for (Competitor competitor : player) {
+//                if (competitor != null) {
+//                    writer.write(competitor.getFullDetails());
+//                    writer.newLine(); // Add a newline between each competitor
+//                }
+//            }
+//
+//            // Find and write details of the competitor with the highest overall score
+//            Competitor highestScorer = getCompetitorWithHighestScore();
+//            if (highestScorer != null) {
+//                writer.newLine(); // Add a separator between competitors and highest scorer
+//                writer.write("Competitor with the Highest Overall Score:");
+//                writer.newLine();
+//                writer.write(highestScorer.getFullDetails());
+//            }
+//
+//            // Write summary statistics
+//            writer.newLine(); // Add a separator between highest scorer and summary statistics
+//            writer.write("Summary Statistics:");
+//            writer.newLine();
+//            writer.write("Total of all scores: " + getTotalScore());
+//            writer.newLine();
+//            writer.write("Average of all scores: " + getAverageScore());
+//            writer.newLine();
+//            writer.write("Highest score: " + getHighestScore());
+//            writer.newLine();
+//            writer.write("Lowest score: " + getLowestScore());
+//
+//            // Write score frequency report
+//            writer.newLine(); // Add a separator between summary statistics and score frequency report
+//            writer.write("Score Frequency Report:");
+//            writer.newLine();
+//            Map<Integer, Integer> scoreFrequency = getScoreFrequency();
+//            for (Map.Entry<Integer, Integer> entry : scoreFrequency.entrySet()) {
+//                writer.write("Score " + entry.getKey() + ": " + entry.getValue() + " times");
+//                writer.newLine();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-            // Find and write details of the competitor with the highest overall score
-            Competitor highestScorer = getCompetitorWithHighestScore();
-            if (highestScorer != null) {
-                writer.newLine(); // Add a separator between competitors and highest scorer
-                writer.write("Competitor with the Highest Overall Score:");
-                writer.newLine();
-                writer.write(highestScorer.getFullDetails());
-            }
-
-            // Write summary statistics
-            writer.newLine(); // Add a separator between highest scorer and summary statistics
-            writer.write("Summary Statistics:");
-            writer.newLine();
-            writer.write("Total of all scores: " + getTotalScore());
-            writer.newLine();
-            writer.write("Average of all scores: " + getAverageScore());
-            writer.newLine();
-            writer.write("Highest score: " + getHighestScore());
-            writer.newLine();
-            writer.write("Lowest score: " + getLowestScore());
-
-            // Write score frequency report
-            writer.newLine(); // Add a separator between summary statistics and score frequency report
-            writer.write("Score Frequency Report:");
-            writer.newLine();
-            Map<Integer, Integer> scoreFrequency = getScoreFrequency();
-            for (Map.Entry<Integer, Integer> entry : scoreFrequency.entrySet()) {
-                writer.write("Score " + entry.getKey() + ": " + entry.getValue() + " times");
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    //Moved to the Manager class
     //Find highest Comp
-    public Competitor getCompetitorWithHighestScore() {
-        Competitor highestScorer = null;
-        double highestScore = Double.MIN_VALUE;
+//    public Competitor getCompetitorWithHighestScore() {
+//        Competitor highestScorer = null;
+//        double highestScore = Double.MIN_VALUE;
+//
+//        for (Competitor competitor : player) {
+//            if (competitor != null) {
+//                double overallScore = competitor.getOverallScore();
+//                if (overallScore > highestScore) {
+//                    highestScore = overallScore;
+//                    highestScorer = competitor;
+//                }
+//            }
+//        }
+//
+//        return highestScorer;
+//    }
 
-        for (Competitor competitor : player) {
-            if (competitor != null) {
-                double overallScore = competitor.getOverallScore();
-                if (overallScore > highestScore) {
-                    highestScore = overallScore;
-                    highestScorer = competitor;
-                }
-            }
-        }
-
-        return highestScorer;
-    }
-
+    //Moved to the Manager class
     //Total Scores
-    public int getTotalScore() {
-        int totalScore = 0;
+//    public int getTotalScore() {
+//        int totalScore = 0;
+//
+//        for (Competitor competitor : player) {
+//            if (competitor != null) {
+//                int[] scores = competitor.getScoreArray();
+//                for (int score : scores) {
+//                    totalScore += score;
+//                }
+//            }
+//        }
+//
+//        return totalScore;
+//    }
 
-        for (Competitor competitor : player) {
-            if (competitor != null) {
-                int[] scores = competitor.getScoreArray();
-                for (int score : scores) {
-                    totalScore += score;
-                }
-            }
-        }
-
-        return totalScore;
-    }
-
+    //Moved to the Manager class
     //Average Score
-    public double getAverageScore() {
-        int totalScore = getTotalScore();
-        int totalCompetitors = getNumberOfCompetitors();
-
-        // Avoid division by zero
-        return totalCompetitors > 0 ? (double) totalScore / totalCompetitors : 0;
-    }
+//    public double getAverageScore() {
+//        int totalScore = getTotalScore();
+//        int totalCompetitors = getNumberOfCompetitors();
+//
+//        // Avoid division by zero
+//        return totalCompetitors > 0 ? (double) totalScore / totalCompetitors : 0;
+//    }
 
     //Total Competitors
     private int getNumberOfCompetitors() {
@@ -190,57 +194,60 @@ public class CompetitorList {
         return count;
     }
 
+    //Moved to the Manager class
     //Max scores
-    public int getHighestScore() {
-        int highestScore = Integer.MIN_VALUE;
+//    public int getHighestScore() {
+//        int highestScore = Integer.MIN_VALUE;
+//
+//        for (Competitor competitor : player) {
+//            if (competitor != null) {
+//                int[] scores = competitor.getScoreArray();
+//                for (int score : scores) {
+//                    if (score > highestScore) {
+//                        highestScore = score;
+//                    }
+//                }
+//            }
+//        }
+//
+//        return highestScore;
+//    }
 
-        for (Competitor competitor : player) {
-            if (competitor != null) {
-                int[] scores = competitor.getScoreArray();
-                for (int score : scores) {
-                    if (score > highestScore) {
-                        highestScore = score;
-                    }
-                }
-            }
-        }
-
-        return highestScore;
-    }
-
+    //Moved to the Manager class
     //Lowest Score
-    public int getLowestScore() {
-        int lowestScore = Integer.MAX_VALUE;
+//    public int getLowestScore() {
+//        int lowestScore = Integer.MAX_VALUE;
+//
+//        for (Competitor competitor : player) {
+//            if (competitor != null) {
+//                int[] scores = competitor.getScoreArray();
+//                for (int score : scores) {
+//                    if (score < lowestScore) {
+//                        lowestScore = score;
+//                    }
+//                }
+//            }
+//        }
+//
+//        return lowestScore;
+//    }
 
-        for (Competitor competitor : player) {
-            if (competitor != null) {
-                int[] scores = competitor.getScoreArray();
-                for (int score : scores) {
-                    if (score < lowestScore) {
-                        lowestScore = score;
-                    }
-                }
-            }
-        }
-
-        return lowestScore;
-    }
-
+    //Moved to the Manager class
     //Score Frequency  Method
-    public Map<Integer, Integer> getScoreFrequency() {
-        Map<Integer, Integer> scoreFrequency = new HashMap<>();
-
-        for (Competitor competitor : player) {
-            if (competitor != null) {
-                int[] scores = competitor.getScoreArray();
-                for (int score : scores) {
-                    scoreFrequency.put(score, scoreFrequency.getOrDefault(score, 0) + 1);
-                }
-            }
-        }
-
-        return scoreFrequency;
-    }
+//    public Map<Integer, Integer> getScoreFrequency() {
+//        Map<Integer, Integer> scoreFrequency = new HashMap<>();
+//
+//        for (Competitor competitor : player) {
+//            if (competitor != null) {
+//                int[] scores = competitor.getScoreArray();
+//                for (int score : scores) {
+//                    scoreFrequency.put(score, scoreFrequency.getOrDefault(score, 0) + 1);
+//                }
+//            }
+//        }
+//
+//        return scoreFrequency;
+//    }
 
     //Search for Competitor and display output
     public Competitor getCompetitorByNumber(int competitorNumber) {

@@ -1,8 +1,9 @@
-public class Staff {
+public class Staff extends Name {
     private String accessLevel;
 
-    public Staff(String accessLevel) {
+    public Staff(String firstName, String middleName, String surname, String accessLevel) {
 
+        super(firstName, middleName, surname);
         this.accessLevel = accessLevel;
     }
 
