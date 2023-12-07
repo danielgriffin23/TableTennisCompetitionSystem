@@ -4,9 +4,11 @@ import java.util.Date;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
+        //Part of Stage Three– Implementing your design, now redundent
 //    public static void main(String[] args) throws Exception {
 //
 //            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -31,6 +33,8 @@ public class Main {
 
         public static void main(String[] args) {
                 CompetitorList competitorList = new CompetitorList();
+                Scanner scanner = new Scanner(System.in);
+
                 try {
                         competitorList.readFromFile("C:\\Users\\dg589065\\IdeaProjects\\TableTennisCompetition\\Directory\\RunCompetitor.csv");
 
@@ -58,8 +62,28 @@ public class Main {
                                         System.out.println("---------------------------");
                                 }
                         }
+
+                        // Allow the user to enter a competitor number
+                        System.out.print("Enter a competitor number to view short details: ");
+                        int userInputNumber = scanner.nextInt();
+
+                        // Get the competitor by the entered number
+                        Competitor selectedCompetitor = competitorList.getCompetitorByNumber(userInputNumber);
+
+                        if (selectedCompetitor != null) {
+                                // Display short details of the selected competitor
+                                System.out.println("Short Details of Competitor with Number " + userInputNumber + ":");
+                                System.out.println(selectedCompetitor.getShortDetails());
+                        } else {
+                                System.out.println("Competitor with the specified number not found.");
+                        }
+
+
                 } catch (Exception e) {
                         e.printStackTrace();
+                } finally {
+                        // Close the scanner
+                        scanner.close();
                 }
         }
 }

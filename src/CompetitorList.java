@@ -31,22 +31,45 @@ public class CompetitorList {
 
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                int competitorNumber = Integer.parseInt(data[0].trim());
-                String firstName = data[1].trim();
-                String middleName = data[2].trim();
-                String surname = data[3].trim();
-                String dateOfBirthString = data[4].trim();
-                Date dateOfBirth = parseDate(dateOfBirthString);
-                int competitorlevel = Integer.parseInt(data[5].trim());
 
-                int[] scores = Arrays.stream(Arrays.copyOfRange(data, 6, data.length))
-                        .mapToInt(Integer::parseInt)
-                        .toArray();
+                // Check if the line has the correct number of fields
+                if (data.length != 11) {
+                    System.out.println("Error in line " + (index + 1) + ": Incorrect number of fields.");
+                }
 
-                player[index] = new Competitor(competitorNumber, firstName, middleName, surname, dateOfBirth, competitorlevel, scores);
+                try {
+                    int competitorNumber = Integer.parseInt(data[0].trim());
+                    String firstName = data[1].trim();
+                    String middleName = data[2].trim();
+                    String surname = data[3].trim();
+                    String dateOfBirthString = data[4].trim();
+                    Date dateOfBirth = parseDate(dateOfBirthString);
+                    int competitorlevel = Integer.parseInt(data[5].trim());
+
+                    // Check if scores are valid integers
+                    for (int i = 6; i < data.length; i++) {
+                        Integer.parseInt(data[i].trim());
+                    }
+
+                    int[] scores = Arrays.stream(Arrays.copyOfRange(data, 6, data.length))
+                            .mapToInt(Integer::parseInt)
+                            .toArray();
+
+                    player[index] = new Competitor(competitorNumber, firstName, middleName, surname, dateOfBirth, competitorlevel, scores);
+
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("Error in line " + (index + 1) + ": Invalid numeric value.");
+
+                }
+                catch (ParseException e) {
+                    System.out.println("Error in line " + (index + 1) + ": Invalid date format.");
+
+                }
+
                 index++;
             }
-        } catch (IOException | NumberFormatException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -217,6 +240,16 @@ public class CompetitorList {
         }
 
         return scoreFrequency;
+    }
+
+    //Search for Competitor and display output
+    public Competitor getCompetitorByNumber(int competitorNumber) {
+        for (Competitor competitor : player) {
+            if (competitor != null && competitor.getCompetitorNumber() == competitorNumber) {
+                return competitor;
+            }
+        }
+        return null;
     }
 
 }

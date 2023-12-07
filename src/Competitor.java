@@ -7,6 +7,8 @@ public class Competitor extends Name{
     private int competitorNumber;
     private int competitionLevel;
     private int[] scores;
+
+    //Part of Stage Three– Implementing your design, now redundent
 //    public Competitor(String firstName, String middleName, String surname,
 //                      Date dateOfBirth, int competitorNumber,
 //                      int competitionLevel, int[] scores) {
