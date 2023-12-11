@@ -55,7 +55,27 @@ public class CompetitorList {
                             .mapToInt(Integer::parseInt)
                             .toArray();
 
-                    player[index] = new ProCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores);
+                    switch (competitorlevel){
+                        case 1:
+                            player[index] = new NoviceCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
+                            };
+                            break;
+                        case 2:
+                            player[index] = new AmateurCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
+                            };
+                            break;
+                        case 3:
+                            player[index] = new ProCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
+                            };
+                            break;
+                        case 4:
+                            player[index] = new ExpertCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
+                            };
+                            break;
+                    }
+                    //player[index] = new NoviceCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
+                    //};
+
 
                 }
                 catch (NumberFormatException e) {

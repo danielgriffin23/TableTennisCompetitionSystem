@@ -6,7 +6,7 @@ public abstract class Competitor {
     private Date dateOfBirth;
     private int competitorNumber;
     private int competitionLevel;
-    private int[] scores;
+    public int[] scores;
 
     //Part of Stage Three– Implementing your design, now redundent
 //    public Competitor(String firstName, String middleName, String surname,
