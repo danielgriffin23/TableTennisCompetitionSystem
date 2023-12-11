@@ -55,7 +55,7 @@ public class CompetitorList {
                             .mapToInt(Integer::parseInt)
                             .toArray();
 
-                    player[index] = new Competitor(competitorNumber, firstName, middleName, surname, dateOfBirth, competitorlevel, scores);
+                    player[index] = new ProCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores);
 
                 }
                 catch (NumberFormatException e) {

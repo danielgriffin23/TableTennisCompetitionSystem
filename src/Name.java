@@ -1,9 +1,9 @@
 public class Name {
-    public String firstName;
+    private String firstName;
 
-    public String middleName;
+    private String middleName;
 
-    public String surname;
+    private String surname;
 
     public Name(String firstName, String middleName, String surname) {
         this.firstName = firstName;

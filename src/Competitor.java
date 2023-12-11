@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Date;
 
-public class Competitor extends Name{
+public abstract class Competitor {
     private Name name;
     private Date dateOfBirth;
     private int competitorNumber;
@@ -21,7 +21,7 @@ public class Competitor extends Name{
 //    }
 
     public Competitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int  competitorlevel, int[] scores ) {
-        super(firstName, middleName, surname);
+        this.name = new Name(firstName, middleName, surname);
         this.competitorNumber = competitorNumber;
         this.dateOfBirth = dateOfBirth;
         this.competitionLevel = competitorlevel;
@@ -78,6 +78,9 @@ public class Competitor extends Name{
         return scores;
     }
 
+    //Abstract Method to get overallScore from the sub classes
+    public abstract double getOverallScore2();
+
     //Calculates the average score of all scores
     public double getOverallScore() {
 
@@ -111,18 +114,18 @@ public class Competitor extends Name{
 
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder.append("Competitor number: " + competitorNumber + ", ")
-                .append("Name: " + firstName + " " + middleName + " " + surname + ", ")
+                .append("Name: " + name + ", ")
                 .append("born " + dateOfBirth + ". ")
-                .append(firstName + " is competing at level " + competitionLevel + " and recieved these scores: " + Arrays.toString(scores) + ".")
-                .append("This gives him an overall score of " + getOverallScore() + ".").toString();
+                .append(name.getFirstName() + " is competing at level " + competitionLevel + " and recieved these scores: " + Arrays.toString(scores) + ".")
+                .append("This gives him an overall score of " + getOverallScore2() + ".").toString();
     }
 
 
     public String getShortDetails() {
 
-        char firstNameInitial = firstName.charAt(0);
-        char middleNameInitial = middleName.charAt(0);
-        char surnameameInitial = surname.charAt(0);
+        char firstNameInitial = name.getFirstName().charAt(0);
+        char middleNameInitial = name.getMiddleName().charAt(0);
+        char surnameameInitial = name.getSurname().charAt(0);
 
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder.append("CN" + competitorNumber + " ")
@@ -133,13 +136,15 @@ public class Competitor extends Name{
     public String toString() {
         StringBuilder builder = new StringBuilder("Competitor: " +
                 "competitorNumber=" + competitorNumber +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", surname='" + surname + '\'' +
+                ", firstName='" + name.getFirstName() + '\'' +
+                ", middleName='" + name.getMiddleName() + '\'' +
+                ", surname='" + name.getSurname() + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", scores=" + Arrays.toString(scores) +
                 '}');
 
         return builder.toString();
     }
+
+
 }
