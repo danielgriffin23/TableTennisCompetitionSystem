@@ -28,16 +28,16 @@ public class UserController {
             String firstName = this.form.getFirstname().trim();
             String middleName = this.form.getMiddlename().trim();
             String surname = this.form.getSurname().trim();
+            int competitorLevel = Integer.parseInt(this.form.getCompetitorLevel().trim());
 
-            int competitorNumber = 1;
             String dateOfBirthString = "22/05/1999";
+            int competitorNumber = 1;
             Date dateOfBirth = null;
             try {
                 dateOfBirth = parseDate(dateOfBirthString);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
-            int competitorlevel = 1;
 
             int scores[] = { 1, 2, 3, 4, 5 };
 
@@ -57,8 +57,9 @@ public class UserController {
                 return;
             }
 
+
             Competitor competitor;
-            switch (competitorlevel){
+            switch (competitorLevel){
                 case 1:
                     competitor = new NoviceCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
                     };
@@ -79,7 +80,7 @@ public class UserController {
                     return ;
             }
             this.database.addCompetitor(competitor);
-            this.database.saveUser(new File(databaseFile));
+            this.database.saveCompetitor(new File(databaseFile));
             this.form.reset(true);
         });
 

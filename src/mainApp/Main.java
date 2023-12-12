@@ -31,6 +31,8 @@ public class Main {
 //    }
 
         public static void main(String[] args) throws Exception {
+
+                //Stage 4 code commented out to replace for Stage 5 GUI Code
 //                CompetitorList competitorList = new CompetitorList();
 //                Scanner scanner = new Scanner(System.in);
 //

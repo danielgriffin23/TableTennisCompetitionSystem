@@ -10,7 +10,7 @@ public class CompetitorDetails extends JPanel {
     // Table for user data
     private JTable competitorTable;
     // table column
-    private String[] userTableColumn = {"FIRST NAME", "MIDDLE NAME", "LAST NAME"};
+    private String[] userTableColumn = {"FIRST NAME", "MIDDLE NAME", "LAST NAME", "LEVEL"};
 
     // back button
     private JButton backButton;

@@ -8,9 +8,10 @@ import java.awt.event.ActionListener;
 public class Form extends JPanel {
 
     private JTextField firstnameField;
-
     private JTextField middlenameField;
     private JTextField lastNameField;
+    private JTextField competitorLevelField;
+
 
     private JButton addButton;
     private JButton viewButton;
@@ -20,10 +21,12 @@ public class Form extends JPanel {
         JLabel firstnameLabel = new JLabel("First Name: ");
         JLabel middlenameLabel = new JLabel("Middle Name: ");
         JLabel lastnameLabel = new JLabel("Last Name: ");
+        JLabel competitorLevelLabel = new JLabel("Level: ");
 
         firstnameField = new JTextField(25);
         middlenameField = new JTextField(25);
         lastNameField = new JTextField(25);
+        competitorLevelField = new JTextField(25);
 
         addButton = new JButton("Add User");
         addButton.setPreferredSize(new Dimension(278, 40));
@@ -75,12 +78,22 @@ public class Form extends JPanel {
 
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
+
+        add(competitorLevelLabel, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+
+        add(competitorLevelField, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = buttonInset;
 
         add(addButton, gridBagConstraints);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.insets = buttonInset;
 
         add(viewButton, gridBagConstraints);
@@ -99,6 +112,10 @@ public class Form extends JPanel {
         return lastNameField.getText();
     }
 
+    public String getCompetitorLevel() {
+        return competitorLevelField.getText();
+    }
+
     public void submitCompetitor(ActionListener actionListener) {
         addButton.addActionListener(actionListener);
     }
@@ -113,6 +130,7 @@ public class Form extends JPanel {
             firstnameField.setText("");
             middlenameField.setText("");
             lastNameField.setText("");
+            competitorLevelField.setText("");
         }
     }
 }

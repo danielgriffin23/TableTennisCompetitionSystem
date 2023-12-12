@@ -285,7 +285,7 @@ public class CompetitorList {
         competitorArrayList.add(competitor);
     }
 
-    public void saveUser(File file) {
+    public void saveCompetitor(File file) {
         try {
             // user model
             Competitor competitor;
@@ -295,7 +295,7 @@ public class CompetitorList {
             int i = 0;
             while( i < competitorArrayList.size()) {
                 competitor = competitorArrayList.get(i);
-                save_data = competitor.getName().getFirstName() + ", " + competitor.getName().getMiddleName() + ", " + competitor.getName().getSurname();
+                save_data = competitor.getName().getFirstName() + ", " + competitor.getName().getMiddleName() + ", " + competitor.getName().getSurname() + ", " + competitor.getCompetitionLevel();
                 i++;
             }
             bufferedWriter.write(save_data);
