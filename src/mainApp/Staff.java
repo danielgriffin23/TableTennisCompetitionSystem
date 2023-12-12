@@ -1,3 +1,7 @@
+package mainApp;
+
+import model.Name;
+
 public class Staff extends Name {
     private String accessLevel;
 

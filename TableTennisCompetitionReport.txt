@@ -1,17 +1,17 @@
-Competitor Table (Full Details):
-Competitor number: 1, Name: Daniel John Griffin, born Sat May 22 00:00:00 BST 1999. Daniel is competing at level 4 and recieved these scores: [9, 5, 2, 1, 9].This gives him an overall score of 5.333333333333333.
-Competitor number: 2, Name: Mark Chris Bailey, born Wed Feb 22 00:00:00 GMT 1995. Mark is competing at level 3 and recieved these scores: [3, 2, 6, 5, 5].This gives him an overall score of 4.333333333333333.
-Competitor number: 3, Name: Ethan James Miller, born Fri Jun 10 00:00:00 BST 1988. Ethan is competing at level 3 and recieved these scores: [6, 4, 7, 2, 2].This gives him an overall score of 4.0.
-Competitor number: 4, Name: Mason Alexander Robinson, born Mon Sep 14 00:00:00 BST 1992. Mason is competing at level 1 and recieved these scores: [4, 1, 1, 5, 7].This gives him an overall score of 3.3333333333333335.
-Competitor number: 5, Name: Noah Benjamin Hall, born Sun Apr 05 00:00:00 BST 1987. Noah is competing at level 4 and recieved these scores: [9, 5, 7, 4, 2].This gives him an overall score of 5.333333333333333.
-Competitor number: 6, Name: Liam Michael Turner, born Fri Nov 03 00:00:00 GMT 2000. Liam is competing at level 1 and recieved these scores: [3, 2, 6, 5, 8].This gives him an overall score of 4.666666666666667.
-Competitor number: 7, Name: Logan Samuel Clark, born Mon Aug 17 00:00:00 BST 1998. Logan is competing at level 2 and recieved these scores: [2, 6, 2, 9, 5].This gives him an overall score of 4.333333333333333.
-Competitor number: 8, Name: Owen Christopher Scott, born Fri Mar 29 00:00:00 GMT 1996. Owen is competing at level 2 and recieved these scores: [6, 4, 4, 8, 2].This gives him an overall score of 4.666666666666667.
-Competitor number: 9, Name: Caleb William Harris, born Tue Jul 08 00:00:00 BST 1986. Caleb is competing at level 1 and recieved these scores: [3, 5, 6, 5, 3].This gives him an overall score of 4.333333333333333.
-Competitor number: 10, Name: Jackson Daniel Mitchell, born Wed Dec 12 00:00:00 GMT 1990. Jackson is competing at level 1 and recieved these scores: [2, 6, 2, 9, 6].This gives him an overall score of 4.666666666666667.
+model.Competitor Table (Full Details):
+model.Competitor number: 1, model.Name: Daniel John Griffin, born Sat May 22 00:00:00 BST 1999. Daniel is competing at level 4 and recieved these scores: [9, 5, 2, 1, 9].This gives him an overall score of 5.333333333333333.
+model.Competitor number: 2, model.Name: Mark Chris Bailey, born Wed Feb 22 00:00:00 GMT 1995. Mark is competing at level 3 and recieved these scores: [3, 2, 6, 5, 5].This gives him an overall score of 4.333333333333333.
+model.Competitor number: 3, model.Name: Ethan James Miller, born Fri Jun 10 00:00:00 BST 1988. Ethan is competing at level 3 and recieved these scores: [6, 4, 7, 2, 2].This gives him an overall score of 4.0.
+model.Competitor number: 4, model.Name: Mason Alexander Robinson, born Mon Sep 14 00:00:00 BST 1992. Mason is competing at level 1 and recieved these scores: [4, 1, 1, 5, 7].This gives him an overall score of 3.3333333333333335.
+model.Competitor number: 5, model.Name: Noah Benjamin Hall, born Sun Apr 05 00:00:00 BST 1987. Noah is competing at level 4 and recieved these scores: [9, 5, 7, 4, 2].This gives him an overall score of 5.333333333333333.
+model.Competitor number: 6, model.Name: Liam Michael Turner, born Fri Nov 03 00:00:00 GMT 2000. Liam is competing at level 1 and recieved these scores: [3, 2, 6, 5, 8].This gives him an overall score of 4.666666666666667.
+model.Competitor number: 7, model.Name: Logan Samuel Clark, born Mon Aug 17 00:00:00 BST 1998. Logan is competing at level 2 and recieved these scores: [2, 6, 2, 9, 5].This gives him an overall score of 4.333333333333333.
+model.Competitor number: 8, model.Name: Owen Christopher Scott, born Fri Mar 29 00:00:00 GMT 1996. Owen is competing at level 2 and recieved these scores: [6, 4, 4, 8, 2].This gives him an overall score of 4.666666666666667.
+model.Competitor number: 9, model.Name: Caleb William Harris, born Tue Jul 08 00:00:00 BST 1986. Caleb is competing at level 1 and recieved these scores: [3, 5, 6, 5, 3].This gives him an overall score of 4.333333333333333.
+model.Competitor number: 10, model.Name: Jackson Daniel Mitchell, born Wed Dec 12 00:00:00 GMT 1990. Jackson is competing at level 1 and recieved these scores: [2, 6, 2, 9, 6].This gives him an overall score of 4.666666666666667.
 
-Competitor with the highest overall score:
-Competitor number: 1, Name: Daniel John Griffin, born Sat May 22 00:00:00 BST 1999. Daniel is competing at level 4 and recieved these scores: [9, 5, 2, 1, 9].This gives him an overall score of 5.333333333333333.
+model.Competitor with the highest overall score:
+model.Competitor number: 1, model.Name: Daniel John Griffin, born Sat May 22 00:00:00 BST 1999. Daniel is competing at level 4 and recieved these scores: [9, 5, 2, 1, 9].This gives him an overall score of 5.333333333333333.
 
 Summary Statistics:
 Total of all scores: 41

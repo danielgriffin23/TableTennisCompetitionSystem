@@ -1,14 +1,13 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package model;
+
+import model.Competitor;
+
+import java.io.*;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CompetitorList {
     private Competitor[] player;
@@ -16,6 +15,7 @@ public class CompetitorList {
     //Constructor for player
     public CompetitorList() {
         player = new Competitor[10];
+        competitorArrayList = new ArrayList<>();
     }
 
     //Reads the CSV File
@@ -73,7 +73,7 @@ public class CompetitorList {
                             };
                             break;
                     }
-                    //player[index] = new NoviceCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
+                    //player[index] = new model.NoviceCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
                     //};
 
 
@@ -109,11 +109,11 @@ public class CompetitorList {
         return player;
     }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Write to File method
 //    public void writeToFile(String filename) {
 //        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-//            for (Competitor competitor : player) {
+//            for (model.Competitor competitor : player) {
 //                if (competitor != null) {
 //                    writer.write(competitor.getFullDetails());
 //                    writer.newLine(); // Add a newline between each competitor
@@ -121,10 +121,10 @@ public class CompetitorList {
 //            }
 //
 //            // Find and write details of the competitor with the highest overall score
-//            Competitor highestScorer = getCompetitorWithHighestScore();
+//            model.Competitor highestScorer = getCompetitorWithHighestScore();
 //            if (highestScorer != null) {
 //                writer.newLine(); // Add a separator between competitors and highest scorer
-//                writer.write("Competitor with the Highest Overall Score:");
+//                writer.write("model.Competitor with the Highest Overall Score:");
 //                writer.newLine();
 //                writer.write(highestScorer.getFullDetails());
 //            }
@@ -155,13 +155,13 @@ public class CompetitorList {
 //        }
 //    }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Find highest Comp
-//    public Competitor getCompetitorWithHighestScore() {
-//        Competitor highestScorer = null;
+//    public model.Competitor getCompetitorWithHighestScore() {
+//        model.Competitor highestScorer = null;
 //        double highestScore = Double.MIN_VALUE;
 //
-//        for (Competitor competitor : player) {
+//        for (model.Competitor competitor : player) {
 //            if (competitor != null) {
 //                double overallScore = competitor.getOverallScore();
 //                if (overallScore > highestScore) {
@@ -174,12 +174,12 @@ public class CompetitorList {
 //        return highestScorer;
 //    }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Total Scores
 //    public int getTotalScore() {
 //        int totalScore = 0;
 //
-//        for (Competitor competitor : player) {
+//        for (model.Competitor competitor : player) {
 //            if (competitor != null) {
 //                int[] scores = competitor.getScoreArray();
 //                for (int score : scores) {
@@ -191,7 +191,7 @@ public class CompetitorList {
 //        return totalScore;
 //    }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Average Score
 //    public double getAverageScore() {
 //        int totalScore = getTotalScore();
@@ -214,12 +214,12 @@ public class CompetitorList {
         return count;
     }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Max scores
 //    public int getHighestScore() {
 //        int highestScore = Integer.MIN_VALUE;
 //
-//        for (Competitor competitor : player) {
+//        for (model.Competitor competitor : player) {
 //            if (competitor != null) {
 //                int[] scores = competitor.getScoreArray();
 //                for (int score : scores) {
@@ -233,12 +233,12 @@ public class CompetitorList {
 //        return highestScore;
 //    }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Lowest Score
 //    public int getLowestScore() {
 //        int lowestScore = Integer.MAX_VALUE;
 //
-//        for (Competitor competitor : player) {
+//        for (model.Competitor competitor : player) {
 //            if (competitor != null) {
 //                int[] scores = competitor.getScoreArray();
 //                for (int score : scores) {
@@ -252,12 +252,12 @@ public class CompetitorList {
 //        return lowestScore;
 //    }
 
-    //Moved to the Manager class
+    //Moved to the mainApp.Manager class
     //Score Frequency  Method
 //    public Map<Integer, Integer> getScoreFrequency() {
 //        Map<Integer, Integer> scoreFrequency = new HashMap<>();
 //
-//        for (Competitor competitor : player) {
+//        for (model.Competitor competitor : player) {
 //            if (competitor != null) {
 //                int[] scores = competitor.getScoreArray();
 //                for (int score : scores) {
@@ -269,12 +269,54 @@ public class CompetitorList {
 //        return scoreFrequency;
 //    }
 
-    //Search for Competitor and display output
+    //Search for model.Competitor and display output
     public Competitor getCompetitorByNumber(int competitorNumber) {
         for (Competitor competitor : player) {
             if (competitor != null && competitor.getCompetitorNumber() == competitorNumber) {
                 return competitor;
             }
+        }
+        return null;
+    }
+
+    private ArrayList<Competitor> competitorArrayList;
+
+    public void addCompetitor(Competitor competitor) {
+        competitorArrayList.add(competitor);
+    }
+
+    public void saveUser(File file) {
+        try {
+            // user model
+            Competitor competitor;
+            String save_data = "";
+
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+            int i = 0;
+            while( i < competitorArrayList.size()) {
+                competitor = competitorArrayList.get(i);
+                save_data = competitor.getName().getFirstName() + ", " + competitor.getName().getMiddleName() + ", " + competitor.getName().getSurname();
+                i++;
+            }
+            bufferedWriter.write(save_data);
+            bufferedWriter.newLine();
+            // prevents memory leak
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Object[] loadCompetitor(File file) {
+        Object[] objects;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            // each lines to array
+            objects = bufferedReader.lines().toArray();
+            bufferedReader.close();
+            return objects;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return null;
     }

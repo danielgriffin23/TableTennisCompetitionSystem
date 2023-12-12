@@ -1,9 +1,13 @@
+package model;
+
+import model.Competitor;
+
 import java.util.Date;
 
-public class AmateurCompetitor extends Competitor{
+public class NoviceCompetitor extends Competitor {
 
-    public AmateurCompetitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int[] scores) {
-        super(competitorNumber, firstName, middleName, surname, dateOfBirth, 2, scores);
+    public NoviceCompetitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int[] scores) {
+        super(competitorNumber, firstName, middleName, surname, dateOfBirth, 1, scores);
     }
 
     public double getOverallScore2(){

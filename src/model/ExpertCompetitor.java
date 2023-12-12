@@ -1,6 +1,10 @@
+package model;
+
+import model.Competitor;
+
 import java.util.Date;
 
-public class ExpertCompetitor extends Competitor{
+public class ExpertCompetitor extends Competitor {
 
     public ExpertCompetitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int[] scores) {
         super(competitorNumber, firstName, middleName, surname, dateOfBirth, 4, scores);

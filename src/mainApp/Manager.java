@@ -1,7 +1,11 @@
+package mainApp;
+
+import model.Competitor;
+import model.CompetitorList;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 public class Manager {
 
@@ -24,7 +28,7 @@ public class Manager {
 
     //Writes competitor details table
     public void writeCompetitorTable(CompetitorList competitorList, BufferedWriter writer) throws IOException {
-        writer.write("Competitor Table (Full Details):");
+        writer.write("model.Competitor Table (Full Details):");
         writer.newLine();
 
         for (Competitor competitor : competitorList.getPlayer()) {
@@ -36,13 +40,13 @@ public class Manager {
         writer.newLine();
     }
 
-    //Writes highest scoring Competitor
+    //Writes highest scoring model.Competitor
     private void writeHighestScoreCompetitor(CompetitorList competitorList, BufferedWriter writer) throws IOException {
 
         Competitor highestScoreCompetitor = findHighestScoreCompetitor(competitorList);
 
         if (highestScoreCompetitor != null) {
-            writer.write("Competitor with the highest overall score:");
+            writer.write("model.Competitor with the highest overall score:");
             writer.newLine();
             writer.write(highestScoreCompetitor.getFullDetails());
             writer.newLine();
@@ -50,7 +54,7 @@ public class Manager {
         }
     }
 
-    //Highest Competitor Method
+    //Highest model.Competitor Method
     private Competitor findHighestScoreCompetitor(CompetitorList competitorList) {
         Competitor highestScoreCompetitor = null;
         double highestOverallScore = Double.MIN_VALUE;

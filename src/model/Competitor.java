@@ -1,15 +1,17 @@
+package model;
+
 import java.util.Arrays;
 import java.util.Date;
 
 public abstract class Competitor {
-    private Name name;
-    private Date dateOfBirth;
-    private int competitorNumber;
-    private int competitionLevel;
+    public Name name;
+    public Date dateOfBirth;
+    public int competitorNumber;
+    public int competitionLevel;
     public int[] scores;
 
     //Part of Stage Three– Implementing your design, now redundent
-//    public Competitor(String firstName, String middleName, String surname,
+//    public model.Competitor(String firstName, String middleName, String surname,
 //                      Date dateOfBirth, int competitorNumber,
 //                      int competitionLevel, int[] scores) {
 //        super(firstName, middleName, surname);
@@ -113,8 +115,8 @@ public abstract class Competitor {
     public String getFullDetails() {
 
         StringBuilder stringBuilder = new StringBuilder();
-        return stringBuilder.append("Competitor number: " + competitorNumber + ", ")
-                .append("Name: " + name + ", ")
+        return stringBuilder.append("model.Competitor number: " + competitorNumber + ", ")
+                .append("model.Name: " + name + ", ")
                 .append("born " + dateOfBirth + ". ")
                 .append(name.getFirstName() + " is competing at level " + competitionLevel + " and recieved these scores: " + Arrays.toString(scores) + ".")
                 .append("This gives him an overall score of " + getOverallScore2() + ".").toString();
@@ -130,11 +132,11 @@ public abstract class Competitor {
         StringBuilder stringBuilder = new StringBuilder();
         return stringBuilder.append("CN" + competitorNumber + " ")
                 .append("("+ firstNameInitial + middleNameInitial + surnameameInitial + ") ")
-                .append("has an overall score " + getOverallScore() + ".").toString();
+                .append("has an overall score " + getOverallScore2() + ".").toString();
     }
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder("Competitor: " +
+        StringBuilder builder = new StringBuilder("model.Competitor: " +
                 "competitorNumber=" + competitorNumber +
                 ", firstName='" + name.getFirstName() + '\'' +
                 ", middleName='" + name.getMiddleName() + '\'' +
