@@ -10,7 +10,7 @@ public class CompetitorDetails extends JPanel {
     // Table for user data
     private JTable competitorTable;
     // table column
-    private String[] userTableColumn = {"FIRST NAME", "MIDDLE NAME", "LAST NAME", "LEVEL"};
+    private String[] userTableColumn = {"COMPETITOR ID", "FIRST NAME", "MIDDLE NAME", "LAST NAME","DATE OF BIRTH", "LEVEL", "OVERALL SCORE", "SCORES"};
 
     // back button
     private JButton backButton;
@@ -39,7 +39,7 @@ public class CompetitorDetails extends JPanel {
         int i = 0;
         while(i < objects.length) {
             String row = objects[i].toString().trim();
-            String[] rows = row.split(",");
+            String[] rows = row.split(",", 8);
             defaultTableModel.addRow(rows);
             i++;
         }

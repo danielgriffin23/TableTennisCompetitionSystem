@@ -4,10 +4,9 @@ import model.Competitor;
 
 import java.io.*;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
+import java.util.*;
 import java.text.SimpleDateFormat;
+import java.util.stream.Collectors;
 
 public class CompetitorList {
     private Competitor[] player;
@@ -111,95 +110,95 @@ public class CompetitorList {
 
     //Moved to the mainApp.Manager class
     //Write to File method
-//    public void writeToFile(String filename) {
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-//            for (model.Competitor competitor : player) {
-//                if (competitor != null) {
-//                    writer.write(competitor.getFullDetails());
-//                    writer.newLine(); // Add a newline between each competitor
-//                }
-//            }
-//
-//            // Find and write details of the competitor with the highest overall score
-//            model.Competitor highestScorer = getCompetitorWithHighestScore();
-//            if (highestScorer != null) {
-//                writer.newLine(); // Add a separator between competitors and highest scorer
-//                writer.write("model.Competitor with the Highest Overall Score:");
-//                writer.newLine();
-//                writer.write(highestScorer.getFullDetails());
-//            }
-//
-//            // Write summary statistics
-//            writer.newLine(); // Add a separator between highest scorer and summary statistics
-//            writer.write("Summary Statistics:");
-//            writer.newLine();
-//            writer.write("Total of all scores: " + getTotalScore());
-//            writer.newLine();
-//            writer.write("Average of all scores: " + getAverageScore());
-//            writer.newLine();
-//            writer.write("Highest score: " + getHighestScore());
-//            writer.newLine();
-//            writer.write("Lowest score: " + getLowestScore());
-//
-//            // Write score frequency report
-//            writer.newLine(); // Add a separator between summary statistics and score frequency report
-//            writer.write("Score Frequency Report:");
-//            writer.newLine();
-//            Map<Integer, Integer> scoreFrequency = getScoreFrequency();
-//            for (Map.Entry<Integer, Integer> entry : scoreFrequency.entrySet()) {
-//                writer.write("Score " + entry.getKey() + ": " + entry.getValue() + " times");
-//                writer.newLine();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void writeToFile(String filename) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (model.Competitor competitor : player) {
+                if (competitor != null) {
+                    writer.write(competitor.getFullDetails());
+                    writer.newLine(); // Add a newline between each competitor
+                }
+            }
+
+            // Find and write details of the competitor with the highest overall score
+            model.Competitor highestScorer = getCompetitorWithHighestScore();
+            if (highestScorer != null) {
+                writer.newLine(); // Add a separator between competitors and highest scorer
+                writer.write("model.Competitor with the Highest Overall Score:");
+                writer.newLine();
+                writer.write(highestScorer.getFullDetails());
+            }
+
+            // Write summary statistics
+            writer.newLine(); // Add a separator between highest scorer and summary statistics
+            writer.write("Summary Statistics:");
+            writer.newLine();
+            writer.write("Total of all scores: " + getTotalScore());
+            writer.newLine();
+            writer.write("Average of all scores: " + getAverageScore());
+            writer.newLine();
+            writer.write("Highest score: " + getHighestScore());
+            writer.newLine();
+            writer.write("Lowest score: " + getLowestScore());
+
+            // Write score frequency report
+            writer.newLine(); // Add a separator between summary statistics and score frequency report
+            writer.write("Score Frequency Report:");
+            writer.newLine();
+            Map<Integer, Integer> scoreFrequency = getScoreFrequency();
+            for (Map.Entry<Integer, Integer> entry : scoreFrequency.entrySet()) {
+                writer.write("Score " + entry.getKey() + ": " + entry.getValue() + " times");
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     //Moved to the mainApp.Manager class
     //Find highest Comp
-//    public model.Competitor getCompetitorWithHighestScore() {
-//        model.Competitor highestScorer = null;
-//        double highestScore = Double.MIN_VALUE;
-//
-//        for (model.Competitor competitor : player) {
-//            if (competitor != null) {
-//                double overallScore = competitor.getOverallScore();
-//                if (overallScore > highestScore) {
-//                    highestScore = overallScore;
-//                    highestScorer = competitor;
-//                }
-//            }
-//        }
-//
-//        return highestScorer;
-//    }
+    public model.Competitor getCompetitorWithHighestScore() {
+        model.Competitor highestScorer = null;
+        double highestScore = Double.MIN_VALUE;
+
+        for (model.Competitor competitor : player) {
+            if (competitor != null) {
+                double overallScore = competitor.getOverallScore();
+                if (overallScore > highestScore) {
+                    highestScore = overallScore;
+                    highestScorer = competitor;
+                }
+            }
+        }
+
+        return highestScorer;
+    }
 
     //Moved to the mainApp.Manager class
     //Total Scores
-//    public int getTotalScore() {
-//        int totalScore = 0;
-//
-//        for (model.Competitor competitor : player) {
-//            if (competitor != null) {
-//                int[] scores = competitor.getScoreArray();
-//                for (int score : scores) {
-//                    totalScore += score;
-//                }
-//            }
-//        }
-//
-//        return totalScore;
-//    }
+    public int getTotalScore() {
+        int totalScore = 0;
+
+        for (model.Competitor competitor : player) {
+            if (competitor != null) {
+                int[] scores = competitor.getScoreArray();
+                for (int score : scores) {
+                    totalScore += score;
+                }
+            }
+        }
+
+        return totalScore;
+    }
 
     //Moved to the mainApp.Manager class
     //Average Score
-//    public double getAverageScore() {
-//        int totalScore = getTotalScore();
-//        int totalCompetitors = getNumberOfCompetitors();
-//
-//        // Avoid division by zero
-//        return totalCompetitors > 0 ? (double) totalScore / totalCompetitors : 0;
-//    }
+    public double getAverageScore() {
+        int totalScore = getTotalScore();
+        int totalCompetitors = getNumberOfCompetitors();
+
+        // Avoid division by zero
+        return totalCompetitors > 0 ? (double) totalScore / totalCompetitors : 0;
+    }
 
     //Total Competitors
     private int getNumberOfCompetitors() {
@@ -216,58 +215,58 @@ public class CompetitorList {
 
     //Moved to the mainApp.Manager class
     //Max scores
-//    public int getHighestScore() {
-//        int highestScore = Integer.MIN_VALUE;
-//
-//        for (model.Competitor competitor : player) {
-//            if (competitor != null) {
-//                int[] scores = competitor.getScoreArray();
-//                for (int score : scores) {
-//                    if (score > highestScore) {
-//                        highestScore = score;
-//                    }
-//                }
-//            }
-//        }
-//
-//        return highestScore;
-//    }
+    public int getHighestScore() {
+        int highestScore = Integer.MIN_VALUE;
+
+        for (model.Competitor competitor : player) {
+            if (competitor != null) {
+                int[] scores = competitor.getScoreArray();
+                for (int score : scores) {
+                    if (score > highestScore) {
+                        highestScore = score;
+                    }
+                }
+            }
+        }
+
+        return highestScore;
+    }
 
     //Moved to the mainApp.Manager class
     //Lowest Score
-//    public int getLowestScore() {
-//        int lowestScore = Integer.MAX_VALUE;
-//
-//        for (model.Competitor competitor : player) {
-//            if (competitor != null) {
-//                int[] scores = competitor.getScoreArray();
-//                for (int score : scores) {
-//                    if (score < lowestScore) {
-//                        lowestScore = score;
-//                    }
-//                }
-//            }
-//        }
-//
-//        return lowestScore;
-//    }
+    public int getLowestScore() {
+        int lowestScore = Integer.MAX_VALUE;
+
+        for (model.Competitor competitor : player) {
+            if (competitor != null) {
+                int[] scores = competitor.getScoreArray();
+                for (int score : scores) {
+                    if (score < lowestScore) {
+                        lowestScore = score;
+                    }
+                }
+            }
+        }
+
+        return lowestScore;
+    }
 
     //Moved to the mainApp.Manager class
     //Score Frequency  Method
-//    public Map<Integer, Integer> getScoreFrequency() {
-//        Map<Integer, Integer> scoreFrequency = new HashMap<>();
-//
-//        for (model.Competitor competitor : player) {
-//            if (competitor != null) {
-//                int[] scores = competitor.getScoreArray();
-//                for (int score : scores) {
-//                    scoreFrequency.put(score, scoreFrequency.getOrDefault(score, 0) + 1);
-//                }
-//            }
-//        }
-//
-//        return scoreFrequency;
-//    }
+    public Map<Integer, Integer> getScoreFrequency() {
+        Map<Integer, Integer> scoreFrequency = new HashMap<>();
+
+        for (model.Competitor competitor : player) {
+            if (competitor != null) {
+                int[] scores = competitor.getScoreArray();
+                for (int score : scores) {
+                    scoreFrequency.put(score, scoreFrequency.getOrDefault(score, 0) + 1);
+                }
+            }
+        }
+
+        return scoreFrequency;
+    }
 
     //Search for model.Competitor and display output
     public Competitor getCompetitorByNumber(int competitorNumber) {
@@ -293,9 +292,14 @@ public class CompetitorList {
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             int i = 0;
+
+//            String scoresString = Arrays.stream(competitor.getScores())
+//                    .mapToObj(String::valueOf)
+//                    .collect(Collectors.joining(", "));
+
             while( i < competitorArrayList.size()) {
                 competitor = competitorArrayList.get(i);
-                save_data = competitor.getName().getFirstName() + ", " + competitor.getName().getMiddleName() + ", " + competitor.getName().getSurname() + ", " + competitor.getCompetitionLevel();
+                save_data = competitor.getCompetitorNumber() + "," + competitor.getName().getFirstName() + ", " + competitor.getName().getMiddleName() + ", " + competitor.getName().getSurname() + ", " + competitor.getDateOfBirth() + ", " + competitor.getCompetitionLevel() + "," + competitor.getOverallScore2() + "," + competitor.getScoresString();
                 i++;
             }
             bufferedWriter.write(save_data);

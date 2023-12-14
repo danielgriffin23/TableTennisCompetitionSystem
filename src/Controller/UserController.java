@@ -3,6 +3,7 @@ package Controller;
 import model.*;
 import view.Form;
 import view.CompetitorDetails;
+import model.Competitor;
 
 import javax.swing.*;
 import java.io.File;
@@ -10,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.text.ParseException;
+import java.util.Scanner;
 
 public class UserController {
     // data file
@@ -25,13 +27,13 @@ public class UserController {
 
         // submit user
         this.form.submitCompetitor(e -> {
+            int competitorNumber = 1;
             String firstName = this.form.getFirstname().trim();
             String middleName = this.form.getMiddlename().trim();
             String surname = this.form.getSurname().trim();
             int competitorLevel = Integer.parseInt(this.form.getCompetitorLevel().trim());
 
-            String dateOfBirthString = "22/05/1999";
-            int competitorNumber = 1;
+            String dateOfBirthString = this.form.getDateOfBirth().trim();
             Date dateOfBirth = null;
             try {
                 dateOfBirth = parseDate(dateOfBirthString);
@@ -39,7 +41,7 @@ public class UserController {
                 throw new RuntimeException(ex);
             }
 
-            int scores[] = { 1, 2, 3, 4, 5 };
+            int[] scores = this.form.getIntScores();
 
             // simple validations
             if(firstName.isEmpty()) {
@@ -56,7 +58,16 @@ public class UserController {
                         JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            else if(dateOfBirthString.isEmpty()) {
+                JOptionPane.showMessageDialog(this.form, "Date Of Birth Required.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            else if(competitorLevel == 0) {
+                JOptionPane.showMessageDialog(this.form, "Date Of Birth Required.", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
             Competitor competitor;
             switch (competitorLevel){
@@ -88,6 +99,25 @@ public class UserController {
         this.form.viewCompetitors(e -> {
             this.competitorDetails.getCompetitor(this.database.loadCompetitor(new File(databaseFile)));
         });
+
+
+        CompetitorList competitorList = new CompetitorList();
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // ... other code ...
+
+            this.form.printCompetitorReport(e -> {
+                competitorList.writeToFile("NewCompetitor_report.csv");
+            });
+
+            // ... other code ...
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            scanner.close();
+        }
     }
 
     private Date parseDate(String dateString) throws Exception  {

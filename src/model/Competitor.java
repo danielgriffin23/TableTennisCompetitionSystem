@@ -6,6 +6,7 @@ import java.util.Date;
 public abstract class Competitor {
     public Name name;
     public Date dateOfBirth;
+    private static int objectCount = 0;
     public int competitorNumber;
     public int competitionLevel;
     public int[] scores;
@@ -24,7 +25,8 @@ public abstract class Competitor {
 
     public Competitor(int competitorNumber, String firstName, String middleName, String surname, Date dateOfBirth, int  competitorlevel, int[] scores ) {
         this.name = new Name(firstName, middleName, surname);
-        this.competitorNumber = competitorNumber;
+        objectCount++;
+        this.competitorNumber = objectCount;
         this.dateOfBirth = dateOfBirth;
         this.competitionLevel = competitorlevel;
         this.scores = scores;
@@ -53,8 +55,15 @@ public abstract class Competitor {
     }
 
     public int getCompetitorNumber() {
-
         return competitorNumber;
+    }
+
+    public static int getObjectCount() {
+        return objectCount;
+    }
+
+    public String getScoresString(){
+        return Arrays.toString(scores);
     }
 
     public void setCompetitorNumber(int competitorNumber) {
