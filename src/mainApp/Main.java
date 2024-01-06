@@ -44,7 +44,6 @@ public class Main {
 //                                if (competitor != null) {
 //                                        System.out.println(competitor.getFullDetails());
 //
-//                                        // Seperates between the prints
 //                                        System.out.println("---------------------------");
 //                                }
 //                        }
@@ -54,7 +53,6 @@ public class Main {
 //                                if (competitor != null) {
 //                                        System.out.println(competitor.getShortDetails());
 //
-//                                        // Seperates between the prints
 //                                        System.out.println("---------------------------");
 //                                }
 //                        }

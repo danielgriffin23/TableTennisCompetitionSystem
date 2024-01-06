@@ -55,12 +55,12 @@ public class Form extends JPanel {
         viewButton.setPreferredSize(new Dimension(278, 40));
 
 
-        // space between fields
+
         Insets fieldsInset = new Insets(0, 0, 10, 0);
-        // space between buttons
+
         Insets buttonInset = new Insets(20,0,0,0);
 
-        // uses Grid Bag Layout
+
         setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.insets = fieldsInset;
@@ -238,9 +238,6 @@ public class Form extends JPanel {
         int[] scores = new int[scoresString.length];
         for(int j = 0;j < scoresString.length;j++)
         {
-            // Note that this is assuming valid input
-            // If you want to check then add a try/catch
-            // and another index for the numbers if to continue adding the others (see below)
             scores[j] = Integer.parseInt(scoresString[j]);
         }
         return scores;
@@ -250,7 +247,7 @@ public class Form extends JPanel {
         int[] scores = getIntScores();
 
         if (scores.length == 0) {
-            return 0.0; // or throw an exception if you prefer
+            return 0.0;
         }
 
         int sum = 0;

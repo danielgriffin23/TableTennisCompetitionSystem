@@ -105,13 +105,10 @@ public class UserController {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            // ... other code ...
 
             this.form.printCompetitorReport(e -> {
                 competitorList.writeToFile("NewCompetitor_report.csv");
             });
-
-            // ... other code ...
 
         } catch (Exception e) {
             e.printStackTrace();

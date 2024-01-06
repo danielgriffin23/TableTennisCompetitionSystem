@@ -72,8 +72,6 @@ public class CompetitorList {
                             };
                             break;
                     }
-                    //player[index] = new model.NoviceCompetitor(competitorNumber, firstName, middleName, surname, dateOfBirth, scores) {
-                    //};
 
 
                 }
@@ -115,21 +113,21 @@ public class CompetitorList {
             for (model.Competitor competitor : player) {
                 if (competitor != null) {
                     writer.write(competitor.getFullDetails());
-                    writer.newLine(); // Add a newline between each competitor
+                    writer.newLine();
                 }
             }
 
             // Find and write details of the competitor with the highest overall score
             model.Competitor highestScorer = getCompetitorWithHighestScore();
             if (highestScorer != null) {
-                writer.newLine(); // Add a separator between competitors and highest scorer
+                writer.newLine();
                 writer.write("model.Competitor with the Highest Overall Score:");
                 writer.newLine();
                 writer.write(highestScorer.getFullDetails());
             }
 
             // Write summary statistics
-            writer.newLine(); // Add a separator between highest scorer and summary statistics
+            writer.newLine();
             writer.write("Summary Statistics:");
             writer.newLine();
             writer.write("Total of all scores: " + getTotalScore());
@@ -141,7 +139,7 @@ public class CompetitorList {
             writer.write("Lowest score: " + getLowestScore());
 
             // Write score frequency report
-            writer.newLine(); // Add a separator between summary statistics and score frequency report
+            writer.newLine();
             writer.write("Score Frequency Report:");
             writer.newLine();
             Map<Integer, Integer> scoreFrequency = getScoreFrequency();
@@ -293,9 +291,6 @@ public class CompetitorList {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             int i = 0;
 
-//            String scoresString = Arrays.stream(competitor.getScores())
-//                    .mapToObj(String::valueOf)
-//                    .collect(Collectors.joining(", "));
 
             while( i < competitorArrayList.size()) {
                 competitor = competitorArrayList.get(i);
@@ -304,7 +299,6 @@ public class CompetitorList {
             }
             bufferedWriter.write(save_data);
             bufferedWriter.newLine();
-            // prevents memory leak
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -315,7 +309,6 @@ public class CompetitorList {
         Object[] objects;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            // each lines to array
             objects = bufferedReader.lines().toArray();
             bufferedReader.close();
             return objects;

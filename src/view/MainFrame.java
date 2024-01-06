@@ -8,7 +8,6 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
 
-    // Card layout for switching view
     private CardLayout cardLayout;
 
     public MainFrame() throws Exception {
@@ -25,7 +24,7 @@ public class MainFrame extends JFrame {
         // adds view to card layout with unique constraints
         add(form, "form");
         add(competitorDetails, "competitor details");
-        // switch view according to its constraints on click
+
         form.viewCompetitors(e -> cardLayout.show(MainFrame.this.getContentPane(), "competitor details"));
         competitorDetails.backButton(e -> cardLayout.show(MainFrame.this.getContentPane(), "form"));
 
@@ -34,7 +33,7 @@ public class MainFrame extends JFrame {
         // frame width & height
         int FRAME_WIDTH = 1200;
         int FRAME_HEIGHT = 700;
-        // size of our application frame
+
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
